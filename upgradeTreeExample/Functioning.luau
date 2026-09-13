@@ -54,8 +54,6 @@ function uf.execute(upgradeNum, price, maxPurchases)
 	else
 		return
 	end
-	
-	purchases[upgradeNum] = (purchases[upgradeNum] or 0)
 
 	if purchases[upgradeNum] >= maxPurchases then
 		return
@@ -82,7 +80,9 @@ function uf.execute(upgradeNum, price, maxPurchases)
 		end
 		
 		task.spawn(unlock)
-	end
+	else
+        warn("No function found")
+    end
 
 	purchases[upgradeNum] += 1
 
